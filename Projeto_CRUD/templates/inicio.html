@@ -21,19 +21,19 @@ tr:nth-child(even) {
 </head>
 <body>
 
-<h2>Agenda de Contatos</h2>
-<td><a href="/novo"> Novo</a></td>
+<h2>Agenda de Contatos </h2>
+<td><a href="{{url_for("novo")}}"> Novo</a></td>
 <table>
   <tr>
     <th>Código</th>
     <th>Nome</th>
     <th>Ação</th>
   </tr>
-  {%for nome in nomes%}
+  {%for usuario in usuarios%}
   <tr>
-    <td>{{nomes.index(nome)}}</td>
-    <td>{{nome}}</td>
-    <td><a href="/editar/{{nomes.index(nome)}}"> Editar</a> <a href="/deletar/{{nomes.index(nome)}}"> Deletar</a></td>    
+    <td>{{usuario.nome}}</td>
+    <td>{{usuario._id}}</td>
+    <td><a href="{{ url_for("editar",id=usuario._id)}}">editar</a> <a href="{{ url_for("deletar",id=usuario._id)}}">deletar</a></td>    
   </tr>
   {%endfor%}  
 </table>
